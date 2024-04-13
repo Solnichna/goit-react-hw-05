@@ -1,0 +1,13 @@
+@import url("../pages/homePage/HomePage.css");
+@import url("../pages/movieDetailsPage/MovieDetailsPage.css");
+@import url("../pages/moviesPage/MoviesPage.css");
+@import url("../pages/notFoundPage/NotFoundPage.css");
+
+#root {
+  max-width: 1280px;
+}
+
+body {
+  background-color: rgb(225, 250, 215);
+  margin: 0 auto;
+}

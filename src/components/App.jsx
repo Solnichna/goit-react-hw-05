@@ -3,12 +3,14 @@ import { useState } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 import clsx from 'clsx';
 import css from './App.module.css';
-import HomePage from './components/HomePage';
-import MoviesPage from './components/MoviesPage';
-import MovieDetailsPage from './components/MovieDetailsPage';
-import MovieCast from './components/MovieCast';
-import MovieReviews from './components/MovieReviews';
-import NotFoundPage from './components/NotFoundPage';
+import HomePage from '../pages/homePage/HomePage';
+import MoviesPage from '../pages/moviesPage/MoviesPage';
+import MovieDetailsPage from '../pages/movieDetailsPage/MovieDetailsPage';
+import NotFoundPage from '../pages/notFoundPage/NotFoundPage';
+import MovieCast from '../components/movieCast/MovieCast';
+
+import MovieReviews from '../components/movieReviews/MovieReviews';
+
 
 function App() {
   return (

@@ -15,6 +15,9 @@ axios
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
 
-
+  const basePath = "https://image.tmdb.org/t/p/w500/"; 
+  const imageName = "/1E5baAaEse26fej7uHcjOgEE2t2.jpg"; 
+  
+  const imageUrl = basePath + imageName; 
 
 
