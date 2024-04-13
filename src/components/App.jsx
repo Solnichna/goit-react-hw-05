@@ -1,13 +1,13 @@
 // src/components/App.jsx
 import { useState } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
-import clsx from 'clsx';
-import css from './App.module.css';
+import 'clsx';
+import './App.module.css';
 import HomePage from '../pages/homePage/HomePage';
 import MoviesPage from '../pages/moviesPage/MoviesPage';
 import MovieDetailsPage from '../pages/movieDetailsPage/MovieDetailsPage';
 import NotFoundPage from '../pages/notFoundPage/NotFoundPage';
-
+import Navigation from './navigation/Navigation';
 
 
 function App() {
@@ -20,10 +20,11 @@ function App() {
             <li><Link to="/movies">Movies</Link></li>
           </ul>
         </nav>
+        <Navigation />
         <Routes>
-          <Route path="/" component={HomePage} exact />
-          <Route path="/movies" component={MoviesPage} exact />
-          <Route path="/movies/:movieId" component={MovieDetailsPage} exact />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
           <Route path="*" element = {<NotFoundPage />} />
         </Routes>
       </div>

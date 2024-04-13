@@ -3,6 +3,8 @@
 @import url("../pages/moviesPage/MoviesPage.module.css");
 @import url("../pages/notFoundPage/NotFoundPage.module.css");
 
+@import url("../components/navigation/Navigation.module.css");
+
 #root {
   max-width: 1280px;
 }
