@@ -1,10 +1,9 @@
 // src/components/App.jsx
 import { useEffect, useState } from "react";
-import { Routes, Route, NavLink } from "react-router-dom";
-import { fetchFamousMovies } from "./api/apiFamous";
-import { SearchMovies } from "./api/apiSearch";
+import { Routes, Route } from "react-router-dom";
+import { fetchFamousMovies } from "./api/apiFamous.js";
+import { SearchMovies } from "./api/apiSearch.js";
 
-import 'clsx';
 import './App.module.css';
 
 import HomePage from '../pages/homePage/HomePage.jsx';
@@ -46,9 +45,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
-          <Route path="/movies/:movieId" element={<MovieDetailsPage />}/>
+          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
             <Route path="cast" element={<MovieCast />} />
             <Route path="reviews" element={<MovieReviews />} /> 
+          </Route>
           <Route path="*" element = {<NotFoundPage />} />
         </Routes>
     </>
