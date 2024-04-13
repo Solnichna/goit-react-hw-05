@@ -1,7 +1,7 @@
-@import url("../pages/homePage/HomePage.css");
-@import url("../pages/movieDetailsPage/MovieDetailsPage.css");
-@import url("../pages/moviesPage/MoviesPage.css");
-@import url("../pages/notFoundPage/NotFoundPage.css");
+@import url("../pages/homePage/HomePage.module.css");
+@import url("../pages/movieDetailsPage/MovieDetailsPage.module.css");
+@import url("../pages/moviesPage/MoviesPage.module.css");
+@import url("../pages/notFoundPage/NotFoundPage.module.css");
 
 #root {
   max-width: 1280px;

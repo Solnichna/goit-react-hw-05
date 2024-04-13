@@ -7,9 +7,7 @@ import HomePage from '../pages/homePage/HomePage';
 import MoviesPage from '../pages/moviesPage/MoviesPage';
 import MovieDetailsPage from '../pages/movieDetailsPage/MovieDetailsPage';
 import NotFoundPage from '../pages/notFoundPage/NotFoundPage';
-import MovieCast from '../components/movieCast/MovieCast';
 
-import MovieReviews from '../components/movieReviews/MovieReviews';
 
 
 function App() {
@@ -26,8 +24,6 @@ function App() {
           <Route path="/" component={HomePage} exact />
           <Route path="/movies" component={MoviesPage} exact />
           <Route path="/movies/:movieId" component={MovieDetailsPage} exact />
-          <Route path="/movies/:movieId/cast" component={MovieCast} exact />
-          <Route path="/movies/:movieId/reviews" component={MovieReviews} exact />
           <Route path="*" element = {<NotFoundPage />} />
         </Switch>
       </div>
