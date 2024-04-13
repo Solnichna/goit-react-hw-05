@@ -20,12 +20,12 @@ function App() {
             <li><Link to="/movies">Movies</Link></li>
           </ul>
         </nav>
-        <Switch>
+        <Routes>
           <Route path="/" component={HomePage} exact />
           <Route path="/movies" component={MoviesPage} exact />
           <Route path="/movies/:movieId" component={MovieDetailsPage} exact />
           <Route path="*" element = {<NotFoundPage />} />
-        </Switch>
+        </Routes>
       </div>
       </>
   );
