@@ -12,7 +12,7 @@ import NotFoundPage from '../pages/notFoundPage/NotFoundPage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <div>
         <nav>
           <ul>
@@ -27,7 +27,7 @@ function App() {
           <Route path="*" element = {<NotFoundPage />} />
         </Switch>
       </div>
-    </BrowserRouter>
+      </>
   );
 }
 
