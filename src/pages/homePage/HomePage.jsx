@@ -1,20 +1,27 @@
 
-//*import MovieList from '../../components/movieList/MovieList';
+import MovieList from '../../components/movieList/MovieList';
 
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-const HomePage = ({ MovieList }) => {
+const HomePage = () => {
   
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const resListMovies = await fetchFamousMovies();
+        
+      } catch (error) {
+        console.error("Failed to fetch movies:", error);
+      }
+    };
+    fetchMovies();
+  }, []);
+
   return (
     <ul className="home">
       <h1>Trending today</h1>
-      {MovieList.map((MovieList) => (
-        <li key={MovieList.id}>
-          <NavLink to={`/movie/${MovieList.id}`}>
-            {MovieList.original_title}
-          </NavLink>
-        </li>
-      ))}
+      <MovieList />
     </ul>
   );
 };

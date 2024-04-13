@@ -1,5 +1,5 @@
 // src/components/App.jsx
-import { useEffect, useState } from "react";
+
 import { Routes, Route } from "react-router-dom";
 import { fetchFamousMovies } from "./api/apiFamous.js";
 import { SearchMovies } from "./api/apiSearch.js";
@@ -16,28 +16,11 @@ import MovieReviews from './movieReviews/MovieReviews.jsx';
 
 
 function App() {
-  const [treandMovies, setTrendMovies] = useState([]);
-  const [searchInput, setSearchInput] = useState([]);
+  
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const resListMovies = await fetchFamousMovies();
-        setTrendMovies(resListMovies);
-      } catch (error) {
-        console.error("Failed to fetch movies:", error);
-      }
-    };
-    fetchMovies();
-  }, []);
+  
 
-  useEffect(() => {
-    const loadSearch = async () => {
-      const resData = await SearchMovies(searchInput);
-      setSearchInput(resData);
-    };
-    loadSearch();
-  }, [searchInput]);
+  
 
   return (
     <>
