@@ -1,4 +1,4 @@
-const MovieList = ({ movies }) => {
+/* const MovieList = ({ movies }) => {
     return (
       <ul>
         {movies.map(movie => (
@@ -8,4 +8,4 @@ const MovieList = ({ movies }) => {
     );
   }
   
-  export default MovieList;
+  export default MovieList; 

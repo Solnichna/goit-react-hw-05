@@ -1,10 +1,36 @@
-const MovieReviews = () => {
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-    return (
-      <div className="">
-        
-      </div>
-    );
-  };
-  
-  export default MovieReviews;
+import { reviewsMovies } from "../api/apiReviews";
+
+const MovieReviews = () => {
+  const { movieId } = useParams();
+  const [reviewsInf, setReviewsInf] = useState([]);
+
+  useEffect(() => {
+    const showReviews = async () => {
+      const result = await reviewsMovies(movieId);
+      setReviewsInf(result);
+    };
+    showReviews();
+  }, [movieId]);
+
+  return (
+    <>
+      {reviewsInf.length > 0 ? (
+        reviewsInf.map((review) => (
+          <div key={review.id}>
+            <h4>Author</h4>
+            <p>{review.author}</p>
+            <h4>Review</h4>
+            <p>{review.content}</p>
+          </div>
+        ))
+      ) : (
+        <p>We don`t have any reviews for this movie</p>
+      )}
+    </>
+  );
+};
+
+export default MovieReviews;
