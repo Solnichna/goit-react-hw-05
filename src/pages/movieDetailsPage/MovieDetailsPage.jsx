@@ -1,7 +1,6 @@
 import { useEffect, useReducer } from "react";
-import { useHistory, useParams, NavLink } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import DetailsMovies from '../../components/api/apiDetails';
-
 
 const actionTypes = {
   SET_MOVIE_DETAILS: 'SET_MOVIE_DETAILS'
@@ -20,7 +19,6 @@ const reducer = (state, action) => {
 };
 
 const MovieDetailsPage = () => {
-  const history = useHistory();
   const { movieId } = useParams();
 
   const [state, dispatch] = useReducer(reducer, { movieDetails: null });
@@ -28,19 +26,14 @@ const MovieDetailsPage = () => {
   useEffect(() => {
     const loadDetails = async () => {
       const result = await DetailsMovies(movieId);
-      
       dispatch({ type: actionTypes.SET_MOVIE_DETAILS, payload: result });
     };
     loadDetails();
   }, [movieId]);
 
-  const handleBack = () => {
-    history.goBack();
-  };
-
   return (
     <div>
-      <button type="button" onClick={handleBack}>Back</button>
+      <button type="button" onClick={() => window.history.back()}>Back</button>
       <img src={`https://image.tmdb.org/t/p/w500${state.movieDetails?.backdrop_path}`} alt={state.movieDetails?.title} />
       <h3>{state.movieDetails?.title}</h3>
       <p>Release date: {state.movieDetails?.release_date}</p>
