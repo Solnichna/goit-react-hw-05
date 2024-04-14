@@ -16,4 +16,4 @@ const reviewsMovies = async (movie_id) => {
   return response.data.results;
 };
 
-export { reviewsMovies };
+export default reviewsMovies;

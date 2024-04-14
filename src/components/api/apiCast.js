@@ -16,6 +16,6 @@ const fetchCastMovies = async (movie_id) => {
   return response.data.cast;
 };
 
-export { fetchCastMovies };
+export default fetchCastMovies ;
 
 

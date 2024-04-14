@@ -16,4 +16,4 @@ const fetchFamousMovies = async () => {
   return response.data.results;
 };
 
-export { fetchFamousMovies };
+export default fetchFamousMovies;

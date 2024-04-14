@@ -17,9 +17,6 @@ import MovieReviews from './movieReviews/MovieReviews.jsx';
 function App() {
   
 
-  
-
-  
 
   return (
     <>

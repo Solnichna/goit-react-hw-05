@@ -16,4 +16,4 @@ const DetailsMovies = async (movie_id) => {
   return response.data;
 };
 
-export { DetailsMovies };
+export default DetailsMovies;

@@ -16,4 +16,4 @@ const SearchMovies = async (searchInput) => {
   return response.data;
 };
 
-export { SearchMovies };
+export default SearchMovies;
