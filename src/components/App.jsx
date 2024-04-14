@@ -15,8 +15,6 @@ import MovieReviews from './movieReviews/MovieReviews.jsx';
 
 
 function App() {
-  
-
 
   return (
     <>
@@ -25,8 +23,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
           <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-            <Route path="cast" element={<MovieCast />} />
-            <Route path="reviews" element={<MovieReviews />} /> 
+            <Route path="/cast" element={<MovieCast />} />
+            <Route path="/reviews" element={<MovieReviews />} /> 
           </Route>
           <Route path="*" element = {<NotFoundPage />} />
         </Routes>
