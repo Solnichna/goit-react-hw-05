@@ -1,11 +1,53 @@
 
+import { useReducer } from 'react';
+
+const actionTypes = {
+  SET_SEARCH_TERM: 'SET_SEARCH_TERM',
+  CLEAR_SEARCH_TERM: 'CLEAR_SEARCH_TERM'
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case actionTypes.SET_SEARCH_TERM:
+      return action.payload;
+    case actionTypes.CLEAR_SEARCH_TERM:
+      return '';
+    default:
+      return state;
+  }
+};
+
 const MoviesPage = () => {
-    return (
-    <form>
-      <input type="text" />
-      <button type="submit">Search</button>
-    </form>
-    );
+  
+  const [searchTerm, dispatch] = useReducer(reducer, '');
+
+  const handleInputChange = (event) => {
+    dispatch({ type: actionTypes.SET_SEARCH_TERM, payload: event.target.value });
   };
 
-  export default MoviesPage;
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+  
+    console.log('Search term:', searchTerm);
+  };
+
+  const handleClearSearch = () => {
+    dispatch({ type: actionTypes.CLEAR_SEARCH_TERM });
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleFormSubmit}>
+        <input 
+          type="text" 
+          value={searchTerm}
+          onChange={handleInputChange}
+        />
+        <button type="submit">Search</button>
+        <button type="button" onClick={handleClearSearch}>Clear</button>
+      </form>
+    </div>
+  );
+};
+
+export default MoviesPage;
