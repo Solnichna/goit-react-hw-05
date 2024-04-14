@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Outlet, useParams, NavLink } from "react-router-dom";
 
-import { DetailsMovies } from "../../components/api/apiDetails";
+import DetailsMovies from '../../components/api/apiDetails';
 
-export const MovieDetailsPage = () => {
+const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
 
@@ -37,3 +37,5 @@ export const MovieDetailsPage = () => {
     </div>
   );
 };
+
+export default MovieDetailsPage;
