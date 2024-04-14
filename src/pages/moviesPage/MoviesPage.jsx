@@ -37,14 +37,14 @@ const MoviesPage = () => {
 
   return (
     <div>
-      <form onSubmit={handleFormSubmit}>
+      <form className='form' onSubmit={handleFormSubmit}>
         <input 
           type="text" 
           value={searchTerm}
           onChange={handleInputChange}
         />
-        <button type="submit">Search</button>
-        <button type="button" onClick={handleClearSearch}>Clear</button>
+        <button className='btn-form' type="submit">Search</button>
+        <button className='btn-form'type="button" onClick={handleClearSearch}>Clear</button>
       </form>
     </div>
   );
