@@ -1,8 +1,7 @@
 // src/components/App.jsx
 
 import { Routes, Route } from "react-router-dom";
-import { fetchFamousMovies } from "./api/apiFamous.js";
-import { SearchMovies } from "./api/apiSearch.js";
+
 
 import './App.module.css';
 
