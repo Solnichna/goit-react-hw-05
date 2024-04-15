@@ -1,5 +1,6 @@
-
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import MovieList from '../../components/movieList/MovieList.jsx';
 
 const actionTypes = {
   SET_SEARCH_TERM: 'SET_SEARCH_TERM',
@@ -18,8 +19,12 @@ const reducer = (state, action) => {
 };
 
 const MoviesPage = () => {
-  
   const [searchTerm, dispatch] = useReducer(reducer, '');
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    setSearchParams({ search: searchTerm });
+  }, [searchTerm, setSearchParams]);
 
   const handleInputChange = (event) => {
     dispatch({ type: actionTypes.SET_SEARCH_TERM, payload: event.target.value });
@@ -27,8 +32,6 @@ const MoviesPage = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-  
-    console.log('Search term:', searchTerm);
   };
 
   const handleClearSearch = () => {
@@ -44,8 +47,9 @@ const MoviesPage = () => {
           onChange={handleInputChange}
         />
         <button className='btn-form' type="submit">Search</button>
-        <button className='btn-form'type="button" onClick={handleClearSearch}>Clear</button>
+        <button className='btn-form' type="button" onClick={handleClearSearch}>Clear</button>
       </form>
+      <MovieList searchTerm={searchTerm} />
     </div>
   );
 };
