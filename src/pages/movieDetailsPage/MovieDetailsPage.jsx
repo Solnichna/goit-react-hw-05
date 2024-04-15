@@ -1,5 +1,5 @@
-import { useEffect, useReducer } from "react";
-import { useParams, NavLink } from "react-router-dom";
+import { useEffect, useReducer, useRef } from "react";
+import { useParams, NavLink, Link } from "react-router-dom";
 import DetailsMovies from '../../components/api/apiDetails';
 
 const actionTypes = {
@@ -20,8 +20,8 @@ const reducer = (state, action) => {
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-
   const [state, dispatch] = useReducer(reducer, { movieDetails: null });
+  const prevLocation = useRef(null);
 
   useEffect(() => {
     const loadDetails = async () => {
@@ -29,11 +29,14 @@ const MovieDetailsPage = () => {
       dispatch({ type: actionTypes.SET_MOVIE_DETAILS, payload: result });
     };
     loadDetails();
+
+    prevLocation.current = window.location.pathname;
   }, [movieId]);
 
   return (
     <div>
-      <button type="button" onClick={() => window.history.back()}>Back</button>
+     
+      <Link to={prevLocation.current}>Back</Link>
       <img src={`https://image.tmdb.org/t/p/w500${state.movieDetails?.backdrop_path}`} alt={state.movieDetails?.title} />
       <h3>{state.movieDetails?.title}</h3>
       <p>Release date: {state.movieDetails?.release_date}</p>
@@ -43,6 +46,7 @@ const MovieDetailsPage = () => {
       <h4>Overview</h4>
       <p>{state.movieDetails?.overview}</p>
       <h4>Additional information:</h4>
+
       <NavLink to={`cast`}>Cast</NavLink>
       <NavLink to={`reviews`}>Reviews</NavLink>
     </div>
